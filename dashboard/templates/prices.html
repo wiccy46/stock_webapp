@@ -10,15 +10,18 @@
     {% include 'sidebar.html' with idx='prices' %}
 
     <div class="main-panel">
-      <p1>Plotting here.</p1>
-          
+      {% include 'navbar.html' %}
+
+      <div class="content">
+        <p1>Plotting here.</p1>
+      </div>
     </div>
     <!--Footer here -->
     {% include "footer.html" %}
   </div>
-</div>
-</div> -->
 
-{% include "scripts.html" %}
+
+  {% include "scripts.html" %}
 </body>
+
 </html>
