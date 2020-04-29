@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+
+# from django_tables2 import SingleTableView
 from dashboard.models import Summary
-from django.core import serializers
-# Create your views here.
+# from dashboard.tables import SummaryTable
+
+
 
 def dashboard(request):
     return render(request, 'dashboard.html', {})
@@ -15,7 +17,14 @@ def prices(request):
 def settings(request):
     return render(request, 'settings.html', {})
 
-# def pivot_data(request):
-#     dataset = Order.objects.all()
-#     data = serializers.serialize('json', dataset)
-#     return JsonResponse(data, safe=False)
+# class SummaryView(SingleTableView):
+#     model = SummaryTable
+#     table_class = SummaryTable
+#     template_name = 'singtable.html'
+
+def singletable(request):
+    model = Summary
+    field_names = [f.name for f in model._meta.get_fields()]
+    data = [[getattr(ins, name) for name in field_names]
+            for ins in model.objects.prefetch_related().all()]
+    return render(request, 'singletable.html', {'field_names': field_names, 'data': data})
