@@ -6,5 +6,4 @@ urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     path('prices/', views.prices, name='prices'),
     path('settings/', views.settings, name='settings'),
-    path('data', views.pivot_data, name='pivot_data'),
 ]

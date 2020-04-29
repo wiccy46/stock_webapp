@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from dashboard.models import Order
+from dashboard.models import Summary
 from django.core import serializers
 # Create your views here.
 
@@ -15,7 +15,7 @@ def prices(request):
 def settings(request):
     return render(request, 'settings.html', {})
 
-def pivot_data(request):
-    dataset = Order.objects.all()
-    data = serializers.serialize('json', dataset)
-    return JsonResponse(data, safe=False)
+# def pivot_data(request):
+#     dataset = Order.objects.all()
+#     data = serializers.serialize('json', dataset)
+#     return JsonResponse(data, safe=False)
