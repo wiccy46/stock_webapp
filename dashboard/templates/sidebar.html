@@ -1,0 +1,76 @@
+
+
+<div class="sidebar">
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="javascript:void(0)" class="simple-text logo-normal">
+                Portfolio
+            </a>
+        </div>
+        <ul class="nav">
+            {% if idx == 'dashboard' %}
+            <li class="active">
+            {% else %}
+            <li class="">
+            {% endif %}
+                <a href="/dashboard/">
+                    <i class="tim-icons icon-chart-bar-32"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            {% if idx == 'prices' %}
+            <li class="active">
+            {% else %}
+            <li class="">
+            {% endif %}
+                <a href="/dashboard/prices/">
+                    <i class="tim-icons icon-money-coins"></i>
+                    <p>Prices</p>
+                </a>
+            </li>
+
+            {% if idx == 'settings' %}
+            <li class="active">
+            {% else %}
+            <li class="">
+            {% endif %}
+                <a href="/dashboard/settings/">
+                    <i class="tim-icons icon-settings"></i>
+                    <p>Settings</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="javascript:void(0)" class="simple-text logo-normal">
+                Portfolio
+            </a>
+        </div>
+        <ul class="nav">
+            <li class="active ">
+                <a href="/dashboard/">
+                    <i class="tim-icons icon-chart-bar-32"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li>
+                <a href="/dashboard/prices/">
+                    <i class="tim-icons icon-money-coins"></i>
+                    <p>Prices</p>
+                </a>
+            </li>
+
+            <li>
+                <a href="/dashboard/settings/">
+                    <i class="tim-icons icon-settings"></i>
+                    <p>Settings</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+-->
