@@ -38,7 +38,8 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table tablesorter " id="">
+                  {{ holdings|safe }}
+                  <!--<table class="table tablesorter " id="">
                     <thead class=" text-primary">
                       <tr>
                         <th>
@@ -156,6 +157,7 @@
                       </tr>
                     </tbody>
                   </table>
+                -->
                 </div>
               </div>
             </div>
@@ -165,7 +167,7 @@
 
         <!--Card for plotting and news highlights -->
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <div class="card card-chart">
               <div class="card-header">
                 <div class="row">
@@ -199,15 +201,18 @@
               </div>
               <div class="card-body">
                 <div class="chart-area">
-                  <canvas id="chartLinePurple"></canvas>
+                  <canvas id="myChart"></canvas>
                 </div>
                 <!--Chart -->
               </div>
             </div>
           </div>
+        </div>
 
+
+        <div class="row">
           <!--News Headlines -->
-          <div class="col-lg-6">
+          <div class="col-lg-12">
             <div class="card card-news">
               <div class="card-header ">
                 <div class="row">
@@ -268,7 +273,7 @@
               <!-- Table Body -->
             </div>
           </div>
-          <!--2nd Row  -->
+        </div>
 
           <!--Footer here -->
           {% include "footer.html" %}
@@ -277,6 +282,33 @@
     </div> -->
 
     {% include "scripts.html" %}
+
+    <script>
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: {{ labels|safe }},
+              datasets: [{
+                  label: 'Close Price',
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: {{close_price|safe}},
+
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+          }
+      });
+      </script>
 </body>
 
 </html>
